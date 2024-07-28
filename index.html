@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f5f5f5;
+      }
+
+      form {
+        width: 400px;
+        height: 400px;
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      input,
+      label,
+      button {
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <form>
+        <lable for="phone">Phone number</lable>
+        <input id="phone" type="text" />
+
+        <lable for="sms">Sms Code</lable>
+        <input type="number" id="sms" />
+
+        <button type="submit" id="sign-in-button">Sign in</button>
+      </form>
+    </div>
+
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
