@@ -1,58 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Number SMS Verification in Firebase</title>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      .form-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background-color: #f5f5f5;
-      }
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <h1>Phone Number Verification with Firebase SMS</h1>
 
-      form {
-        width: 400px;
-        height: 400px;
-        background: white;
-        border-radius: 10px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
+            <div class="number-input">
+                <input type="text" id="number" placeholder="+639948621564">
+                <div id="recaptcha-container"></div>
+                <button id="send" onclick="sendOTP()">Verify Number</button>
+            </div>
 
-      input,
-      label,
-      button {
-        display: inline-block;
-        width: 100%;
-        height: 40px;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="form-container">
-      <form>
-        <lable for="phone">Phone number</lable>
-        <input id="phone" type="text" />
+            <div class="verification" style="display: none;">
+                <input type="text" id="verificationCode" placeholder="OTP Code">
+                <button id="verify" onclick="verifyCode()">Send OTP</button>
+                <a href="#" onclick="location.reload()">Didn't receive a code? Try Again!</a>
+            </div>
 
-        <lable for="sms">Sms Code</lable>
-        <input type="number" id="sms" />
+            <div class="result" style="display: none;">
+                <div class="correct" style="display: none;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4315/4315445.png" alt="">
+                    <h3>Phone Number Verified!</h3>
+                    <button onclick="location.reload()">Confirm</button>
+                </div>
 
-        <button type="submit" id="sign-in-button">Sign in</button>
-      </form>
+                <div class="incorrect" style="display: none;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/14025/14025477.png" alt="">
+                    <h3>Phone Number Verified!</h3>
+                    <button onclick="location.reload()">Try Again!</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="./index.js" type="module"></script>
-  </body>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.12.1/firebase-auth-compat.js"></script>
+
+    <!-- Script JS -->
+    <script src="./script.js"></script>
+</body>
 </html>
